@@ -3,9 +3,9 @@ A Nextflow pipeline for organellar genome analysis.
 
 # Usage
 
-1. Install Nextflow via Conda.
-2. Ensure Docker is installed and running on your system.
-3. Build `samples_table`
+## Install Nextflow via Conda.
+## Ensure Docker is installed and running on your system.
+## Build `samples_table`
 
 ## Samples Configuration File (-samples_table)
 
@@ -33,7 +33,7 @@ Species_3,plastome,Group_B,/path/to/Species_3_plastome.fasta,,/path/to/Species_3
 Species_3,mitogenome,Group_B,/path/to/Species_3_mitogenome.fasta,,/path/to/Species_3_mitogenome.bed
 ```
 
-4. Run pipeline
+## Run pipeline
 
 ## Pipeline Parameters
 
