@@ -71,6 +71,19 @@ results/
 
 ## Ka/Ks Analysis
 
+### Example Output: Ka/Ks Results
+
+| gene | parameter | Functional_Category | Rorippa_indica | Descurainia_sophia | Capsella_bursa_pastoris | Brassica_rapa_purpuraria | Crucihimalaya_lasiocarpa | Arabidopsis_thaliana | Arabidopsis_thaliana_1 | Capsella_rubella | Brassica_rapa_parachinensis | Isatis_tinctoria | Brassica_napus |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| accd | Ka | Other genes | 0.00076 | 0.02385 | 0.03664 | 0.00076 | 0.02924 | 0.0348 | 0.0348 | 0.03666 | 0.00076 | 0.01801 | 0 |
+| accd | Ks | Other genes | 0 | 0.04075 | 0.07885 | 0 | 0.03537 | 0.0719 | 0.0719 | 0.08002 | 0 | 0.02934 | 0 |
+| accd | Ka/Ks | Other genes | 0 | 0.5852 | 0.4647 | 0 | 0.8267 | 0.4841 | 0.4841 | 0.4582 | 0 | 0.614 | 0 |
+
+- [pA](plots/rscu_plots.pdf)
+- [pB](plots/rscu_plots.pdf)
+- [pC](plots/rscu_plots.pdf)
+- [pD](plots/rscu_plots.pdf)
+
 ## Phylogenetic Tree (CDS-based)
 
 ## RNA Editing Prediction
