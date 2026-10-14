@@ -125,6 +125,21 @@ results/
 
 ## Organellar Transfers (Mitogenome vs. Plastome)
 
+### Example Output: Transgenomes Results
+
+| mt_id | pt_id | perc_identity | num_ident_matches | alig_length | mismatches | gap_openings | n_gaps | pos_match | ppos | mt_start | mt_end | mt_total_len | qcov | qcovhsp | pt_start | pt_end | pt_total_len | evalue | bit_score | score_raw | mt_genes | pt_genes | direction |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :--- | :--- |
+| JF729200.1 | OP474144.1 | 96.805 | 909 | 939 | 15 | 4 | 15 | 909 | 96.81 | 105009 | 105941 | 366922 | 2 | 0 | 109937 | 109008 | 154478 | 0 | 1554 | 1723 | tRNA-Asn (g_len=62, ov_len=62, g_perc=100%, t_perc=6.6%) | trnN-GUU (g_len=72, ov_len=72, g_perc=100%, t_perc=7.7%); ycf1 (g_len=1029, ov_len=530, g_perc=51.5%, t_perc=56.4%) | PT -> MT |
+| JF729200.1 | OP474144.1 | 96.805 | 909 | 939 | 15 | 4 | 15 | 909 | 96.81 | 105009 | 105941 | 366922 | 2 | 0 | 128712 | 129641 | 154478 | 0 | 1554 | 1723 | tRNA-Asn (g_len=62, ov_len=62, g_perc=100%, t_perc=6.6%) | ycf1 (g_len=5358, ov_len=529, g_perc=9.9%, t_perc=56.3%); trnN-GUU (g_len=72, ov_len=72, g_perc=100%, t_perc=7.7%) | PT -> MT |
+| JF729200.1 | OP474144.1 | 97.038 | 557 | 574 | 11 | 2 | 6 | 557 | 97.04 | 77540 | 78108 | 366922 | 2 | 0 | 56072 | 55500 | 154478 | 0 | 956 | 1059 | none | rbcL (g_len=1440, ov_len=572, g_perc=39.7%, t_perc=99.7%) | PT -> MT |
+| JF729200.1 | OP474144.1 | 99.608 | 508 | 510 | 1 | 1 | 1 | 508 | 99.61 | 364676 | 365185 | 366922 | 2 | 0 | 105187 | 105695 | 154478 | 0 | 908 | 1006 | none | rrn23S (g_len=2810, ov_len=508, g_perc=18.1%, t_perc=99.6%) | Unidentified |
+| JF729200.1 | OP474144.1 | 99.608 | 508 | 510 | 1 | 1 | 1 | 508 | 99.61 | 364676 | 365185 | 366922 | 2 | 0 | 133462 | 132954 | 154478 | 0 | 908 | 1006 | none | rrn23S (g_len=2810, ov_len=508, g_perc=18.1%, t_perc=99.6%) | Unidentified |
+| JF729200.1 | OP474144.1 | 95.257 | 482 | 506 | 12 | 3 | 12 | 482 | 95.26 | 334343 | 334837 | 366922 | 2 | 0 | 898 | 394 | 154478 | 0 | 802 | 889 | none | psbA (g_len=1062, ov_len=504, g_perc=47.5%, t_perc=99.6%) | PT -> MT |
+
+![transfers_plot1](plots/transfers_plot1-1.png)
+
+![transfers_plot2](plots/transfers_plot2-1.png)
+
 # Citation
 
 If you use **OrganelleFix** in your research, please cite the underlying tools and software packages integrated into this pipeline:
