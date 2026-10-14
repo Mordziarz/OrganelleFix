@@ -67,6 +67,23 @@ results/
 
 ## SSR Analysis
 
+### Example Output: SSR Analysis Results
+
+| ID | Class | Base | Start | End | Len | Count | SSR | Gene_Context | Species |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :--- | :--- |
+| JF729200.1 | Tetra | TTCT | 2934 | 2945 | 12 | 3 | TTCTTTCTTTCT | Intergenic (Start - rrn26) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 | Penta | CATTC | 3007 | 3021 | 15 | 3 | CATTCCATTCCATTC | Intergenic (Start - rrn26) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 | Tri | GAA | 8507 | 8521 | 15 | 5 | GAAGAAGAAGAAGAA | Intergenic (Start - rrn26) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 | Tetra | AATG | 26935 | 26946 | 12 | 3 | AATGAATGAATG | rps3 | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 | Tetra | ACTC | 29844 | 29855 | 12 | 3 | ACTCACTCACTC | Intergenic (tRNA-Lys - ccmB) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 | Di | TC | 34725 | 34736 | 12 | 6 | TCTCTCTCTCTC | Intergenic (ccmB - cox2) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 | Tri | TTC | 42771 | 42782 | 12 | 4 | TTCTTCTTCTTC | Intergenic (cox2 - ccmFC) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 | Tetra | ACTT | 45720 | 45731 | 12 | 3 | ACTTACTTACTT | Intergenic (cox2 - ccmFC) | Arabidopsis_thaliana_1_mitogenome |
+
+![ssr_1](plots/ssr_1-1.png)
+
+![ssr_2](plots/ssr_2-1.png)
+
 ## Repeat Analysis 
 
 ## Ka/Ks Analysis
