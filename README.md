@@ -35,13 +35,16 @@ Species_3,mitogenome,Group_B,/path/to/Species_3_mitogenome.fasta,,/path/to/Speci
 
 4. Run pipeline
 
-Pipeline Parameters
-Parameter | Type | Default | Description
---samples_table | file | null | (Required) Path to input CSV samples sheet.
---ks_ka_reference_plastome | file | null | Reference plastome sequence for Ka/Ks analysis.
---ks_ka_reference_mitogenome | file | null | Reference mitogenome sequence for Ka/Ks analysis.
---outgroup_plastome | file | null | Outgroup sequence for plastome phylogenetic tree building.
---outgroup_mitogenome | file | null | Outgroup sequence for mitogenome phylogenetic tree building.
+## Pipeline Parameters
+```text
+| Parameter | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `--samples_table` | `file` | *null* | **(Required)** Path to input CSV samples sheet. |
+| `--ks_ka_reference_plastome` | `file` | *null* | Reference plastome sequence for Ka/Ks analysis. |
+| `--ks_ka_reference_mitogenome` | `file` | *null* | Reference mitogenome sequence for Ka/Ks analysis. |
+| `--outgroup_plastome` | `file` | *null* | Outgroup sequence for plastome phylogenetic tree building. |
+| `--outgroup_mitogenome` | `file` | *null* | Outgroup sequence for mitogenome phylogenetic tree building. |
+```
 
 ``` bash
 nextflow run mordziarz/OrganelleFix -profile standard  --samples_table samples_table.csv -profile standard --ks_ka_reference_plastome "species" --ks_ka_reference_mitogenome "species" --outgroup_plastome "species" --outgroup_mitogenome "species"
