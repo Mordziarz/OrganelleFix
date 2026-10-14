@@ -65,6 +65,18 @@ results/
 
 ## RSCU Analysis
 
+### Example Output: RSCUcaller Results
+
+| Species | Lys \| aaa | Asn \| aac | Thr \| aca | Met \| atg | Ala \| gct | ... (skrócono) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Rorippa_indica_plastome** | 1.5208 | 0.4474 | 1.2222 | 1.0000 | 1.8901 | ... |
+| **Descurainia_sophia_plastome** | 1.5424 | 0.4556 | 1.2154 | 1.0000 | 1.8500 | ... |
+| **Capsella_bursa_pastoris_plastome** | 1.5745 | 0.4871 | 1.2383 | 1.0000 | 1.9042 | ... |
+
+![rscu_heatmap_plastome](plots/rscu_heatmap_plastome-1.png)
+
+![rscu_histogram_Arabidopsis_thaliana_mitogenome](plots/rscu_histogram_Arabidopsis_thaliana_mitogenome-1.png)
+
 ## SSR Analysis
 
 ### Example Output: SSR Analysis Results
@@ -85,6 +97,10 @@ results/
 ![ssr_2](plots/ssr_2-1.png)
 
 ## Repeat Analysis 
+
+![pA](plots/pA-1.png)
+
+![pB](plots/pB-1.png)
 
 ## Ka/Ks Analysis
 
