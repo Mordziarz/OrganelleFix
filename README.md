@@ -91,6 +91,19 @@ results/
 
 ## RNA Editing Prediction
 
+### Example Output: RNA Editing Results
+
+| gene | codon_position | nucleotide_position | original_codon | edited_codon | original_aa | edited_aa | type | confidence_score |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| psbA | 1 | 2 | ATG | ACG | M | T | U-to-C | Moderate |
+| psbA | 2 | 5 | ACT | ATT | T | I | C-to-U | High |
+| psbA | 3 | 8 | GCA | GTA | A | V | C-to-U | High |
+| psbA | 4 | 11 | ATT | ACT | I | T | U-to-C | Moderate |
+| psbA | 5 | 14 | TTA | TCA | L | S | U-to-C | Moderate |
+| psbA | 8 | 22 | CGC | TGC | R | C | C-to-U | Moderate |
+| psbA | 13 | 38 | CTA | CCA | L | P | U-to-C | Moderate |
+| psbA | 14 | 40 | TGG | CGG | W | R | U-to-C | Moderate |
+
 ## Organellar Transfers (Mitogenome vs. Plastome)
 
 # Citation
