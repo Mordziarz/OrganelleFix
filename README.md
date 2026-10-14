@@ -79,10 +79,10 @@ results/
 | accd | Ks | Other genes | 0 | 0.04075 | 0.07885 | 0 | 0.03537 | 0.0719 | 0.0719 | 0.08002 | 0 | 0.02934 | 0 |
 | accd | Ka/Ks | Other genes | 0 | 0.5852 | 0.4647 | 0 | 0.8267 | 0.4841 | 0.4841 | 0.4582 | 0 | 0.614 | 0 |
 
-- [pA](plots/rscu_plots.pdf)
-- [pB](plots/rscu_plots.pdf)
-- [pC](plots/rscu_plots.pdf)
-- [pD](plots/rscu_plots.pdf)
+- [pA](plots/pA.pdf)
+- [pB](plots/pB.pdf)
+- [pC](plots/pC.pdf)
+- [pD](plots/pD.pdf)
 
 ## Phylogenetic Tree (CDS-based)
 
