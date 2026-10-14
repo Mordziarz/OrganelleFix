@@ -7,9 +7,9 @@ A Nextflow pipeline for organellar genome analysis.
 2. Ensure Docker is installed and running on your system.
 3. Build `samples_table`
 
-## Samples Configuration File (`samples_table.csv`)
+## Samples Configuration File (-samples_table)
 
-The `samples_table.csv` input file controls the execution of the **OrganelleFix** pipeline. It allows defining organellar samples and supports two alternative data delivery methods (GenBank **or** FASTA + BED).
+The `-samples_table` input file controls the execution of the **OrganelleFix** pipeline. It allows defining organellar samples and supports two alternative data delivery methods (GenBank **or** FASTA + BED).
 
 ## Column Description:
 * **`sample_id`**: Unique identifier for the sample or species (used in output folder names).
@@ -21,7 +21,7 @@ The `samples_table.csv` input file controls the execution of the **OrganelleFix*
 
 ---
 
-## Example Content of `samples_table.csv`:
+## Example Content of `-samples_table`:
 
 ```csv
 sample_id,organelle,comparison_group,fasta_path,gbk_path,bed_path
