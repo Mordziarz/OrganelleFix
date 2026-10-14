@@ -67,7 +67,7 @@ results/
 
 ### Example Output: RSCUcaller Results
 
-| Species | Lys \| aaa | Asn \| aac | Thr \| aca | Met \| atg | Ala \| gct | ... (skrócono) |
+| Species | Lys \| aaa | Asn \| aac | Thr \| aca | Met \| atg | Ala \| gct | ...  |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Rorippa_indica_plastome** | 1.5208 | 0.4474 | 1.2222 | 1.0000 | 1.8901 | ... |
 | **Descurainia_sophia_plastome** | 1.5424 | 0.4556 | 1.2154 | 1.0000 | 1.8500 | ... |
