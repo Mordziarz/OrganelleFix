@@ -89,6 +89,8 @@ results/
 
 ## Phylogenetic Tree (CDS-based)
 
+![tree](plots/tree.png)
+
 ## RNA Editing Prediction
 
 ### Example Output: RNA Editing Results
