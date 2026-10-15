@@ -71,8 +71,7 @@ def universal_smart_filter(gene_name, seq):
                 mut_codon_list[pos_in_codon] = 'T'
                 mut_codon = "".join(mut_codon_list)
                 mut_aa = GENETIC_CODE.get(mut_codon, 'X')
-                
-                # Rygorystyczny filtr biologiczny dla roślin organellarnych
+
                 if orig_aa != mut_aa and mut_aa != '*' and mut_aa in HYDROPHOBIC_AAS and pos_in_codon in [0, 1]:
                     editing_events.append({
                         'gene': gene_name,
