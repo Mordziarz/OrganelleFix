@@ -33,6 +33,15 @@ Species_3,plastome,Group_B,/path/to/Species_3_plastome.fasta,,/path/to/Species_3
 Species_3,mitogenome,Group_B,/path/to/Species_3_mitogenome.fasta,,/path/to/Species_3_mitogenome.bed
 ```
 
+## Example Content of `-bed_path`:
+
+```csv
+genome	5000	5400	rrn26	rRNA	+
+genome	35000	35400	ccmB	CDS	+
+genome	35500	36000	cox2	CDS	+
+genome	122000	122300	tRNA-Ser	tRNA	+
+```
+
 ## Run pipeline
 
 ## Pipeline Parameters
