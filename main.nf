@@ -33,10 +33,10 @@ workflow {
                 group: row.comparison_group
             ]
           
-            def fasta = (row.fasta_path && row.fasta_path != "") ? file(row.fasta_path, checkIfExists: true) : file("$projectDir/NO_FASTA_${row.sample_id}")
-            def gbk   = (row.gbk_path   && row.gbk_path   != "") ? file(row.gbk_path,   checkIfExists: true) : file("$projectDir/NO_GBK_${row.sample_id}")
-            def bed   = (row.bed_path   && row.bed_path   != "") ? file(row.bed_path,   checkIfExists: true) : file("$projectDir/NO_BED_${row.sample_id}")
-          
+            def fasta = (row.fasta_path && row.fasta_path != "") ? file(row.fasta_path, checkIfExists: true) : file("NO_FASTA_${row.sample_id}")
+            def gbk   = (row.gbk_path   && row.gbk_path   != "") ? file(row.gbk_path,   checkIfExists: true) : file("NO_GBK_${row.sample_id}")
+            def bed   = (row.bed_path   && row.bed_path   != "") ? file(row.bed_path,   checkIfExists: true) : file("NO_BED_${row.sample_id}")
+                    
             return [ meta, fasta, gbk, bed ]
         }
 
