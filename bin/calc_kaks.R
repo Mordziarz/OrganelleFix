@@ -22,8 +22,8 @@ samples_arg <- parse_arg("--samples")
 cds_arg <- parse_arg("--cds_files")
 reference_arg <- parse_arg("--reference")
 
-if (is.null(organelle) || is.null(samples_arg) || is.null(cds_arg) || is.null(reference_arg)) {
-  stop("Missing required arguments: --organelle, --samples, --cds_files, or --reference")
+if (is.null(organelle) || is.null(samples_arg) || is.null(cds_arg)) {
+  stop("Missing required arguments: --organelle, --samples, or --cds_files")
 }
 
 samples <- unlist(strsplit(samples_arg, ","))
@@ -33,40 +33,63 @@ if (length(samples) != length(cds_files)) {
   stop("Number of samples does not match number of CDS files!")
 }
 
-ref_sample <- reference_arg
-if (!(ref_sample %in% samples)) {
-  stop(sprintf("Specified reference sample '%s' not found in samples list!", ref_sample))
+if (is.null(reference_arg) || reference_arg == "" || reference_arg == "null" || !(reference_arg %in% samples)) {
+  ref_sample <- samples[1]
+  cat(sprintf("[INFO] No valid reference specified. Automatically using first sample as reference: %s\n", ref_sample))
+} else {
+  ref_sample <- reference_arg
 }
 
 cat(sprintf("[INFO] Processing Ka/Ks calculation for organelle: %s with %d samples. Reference: %s\n", 
             organelle, length(samples), ref_sample))
 
-get_functional_category <- function(gene_name) {
-  gene <- tolower(gene_name)
-  if (grepl("psa", gene)) {
-    return("Photosystem I")
-  } else if (grepl("psb", gene)) {
-    return("Photosystem II")
-  } else if (grepl("pet", gene)) {
-    return("Cytochrome b/f complex")
-  } else if (grepl("rbcl", gene)) {
-    return("RUBISCO large subunit")
-  } else if (grepl("atp", gene)) {
-    return("ATP synthase")
-  } else if (grepl("rpo", gene)) {
-    return("Dna dependent RNA polymerase")
-  } else if (grepl("rps", gene)) {
-    return("Small subunit of ribosome")
-  } else if (grepl("rpl", gene)) {
-    return("Large subunit of ribosome")
-  } else if (grepl("ndh|nad", gene)) {
-    return("NADH dehydrogenase")
-  } else if (grepl("cox|cob|ccm|sdh", gene)) {
-    return("Mitochondrial Complex / Respiration")
-  } else {
-    return("Other genes")
+get_functional_category <- function(gene_name, organelle_type = "chloroplast") {
+  gene <- tolower(gsub("[^a-zA-Z0-9]", "", gene_name))
+  org <- tolower(organelle_type)
+
+  if (grepl("^rrn", gene)) {
+    return("Ribosomal RNA")
   }
+  if (grepl("^trn", gene)) {
+    return("Transfer RNA")
+  }
+
+  if (org %in% c("chloroplast", "plastid", "cp", "plastome")) {
+    if (grepl("^psa[a-z0-9]*$", gene)) return("Photosystem I")
+    if (grepl("^psb[a-z0-9]*$", gene)) return("Photosystem II")
+    if (grepl("^pet[a-z0-9]*$", gene)) return("Cytochrome b6f complex")
+    if (gene == "rbcl") return("Rubisco large subunit")
+    if (grepl("^ndh[a-z0-9]*$", gene)) return("NADH dehydrogenase-like complex")
+    if (grepl("^atp[a-z0-9]*$", gene)) return("ATP synthase")
+    if (grepl("^rpo[a-z0-9]*$", gene)) return("RNA polymerase")
+    if (grepl("^rps[a-z0-9]*$", gene)) return("Small ribosomal subunit")
+    if (grepl("^rpl[a-z0-9]*$", gene)) return("Large ribosomal subunit")
+    if (gene == "matk") return("RNA processing and splicing")
+    if (gene == "clpp") return("Protein processing and degradation")
+    if (gene == "accd") return("Fatty acid biosynthesis")
+    if (gene == "ccsa") return("Cytochrome c biogenesis")
+    if (gene == "infa") return("Translation initiation")
+    if (gene == "tufa") return("Translation elongation")
+    if (grepl("^ycf", gene)) return("Other plastid protein")
+    return("Other plastid genes")
+  }
+
+  if (org %in% c("mitochondrion", "mitochondria", "mt", "mitogenome")) {
+    if (grepl("^nad[0-9]+$", gene)) return("Respiratory complex I")
+    if (grepl("^cob[0-9]*$", gene)) return("Cytochrome b / complex III")
+    if (grepl("^cox[0-9]+$", gene)) return("Cytochrome c oxidase / complex IV")
+    if (grepl("^sdh[a-z0-9]*$", gene)) return("Succinate dehydrogenase / complex II")
+    if (grepl("^atp[0-9]+$", gene)) return("ATP synthase")
+    if (grepl("^rps[a-z0-9]*$", gene)) return("Small ribosomal subunit")
+    if (grepl("^rpl[a-z0-9]*$", gene)) return("Large ribosomal subunit")
+    if (gene == "matr") return("RNA processing and splicing")
+    if (grepl("^ccm", gene)) return("Cytochrome c biogenesis")
+    return("Other mitochondrial genes")
+  }
+
+  return("Other or unclassified genes")
 }
+
 normalize_name <- function(header) {
   header_clean <- gsub("^>", "", header)
   
@@ -134,7 +157,7 @@ cat(sprintf("[INFO] Unique genes found across samples: %d\n", length(all_genes))
 for (gene in all_genes) {
   if (nchar(gene) == 0) next
   
-  category <- get_functional_category(gene)
+  category <- get_functional_category(gene, organelle)
   
   if (is.null(sample_data[[ref_sample]][[gene]])) {
     next
@@ -200,12 +223,10 @@ for (gene in all_genes) {
       next
     }
     
-    # Bezpieczne wywołanie kaks() z obsługą błędów i ostrzeżeń
     kaks_res <- suppressWarnings(tryCatch({
       kaks(aln_obj)
     }, error = function(e) { NULL }))
     
-    # Rygorystyczne sprawdzenie, czy wynik jest poprawną listą z macierzami ka i ks
     if (is.null(kaks_res) || !is.list(kaks_res) || is.null(kaks_res$ka) || is.null(kaks_res$ks)) {
       ka_row[[s]] <- NA_real_
       ks_row[[s]] <- NA_real_
