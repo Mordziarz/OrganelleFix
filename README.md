@@ -98,9 +98,20 @@ results/
 
 ## Repeat Analysis 
 
-![pA](plots/pA-1.png)
+| Sequence | Type | Orientation | Start1 | End1 | Start2 | End2 | Length | Identity | Mismatches | GapOpens | Gap | Evalue | BitScore | Context1 | Context2 | Species |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| JF729200.1 Arabidopsis thaliana ecotype C24 mitochondrion, complete genome | Forward | Direct | 5508 | 5541 | 171706 | 171739 | 34 | 91.176 | 3 | 0 | 166164 | 0.007 | 44.1 | Intergenic (Start - rrn26) | Intergenic (nad4 - atp4) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 Arabidopsis thaliana ecotype C24 mitochondrion, complete genome | Forward | Direct | 7557 | 7596 | 35251 | 35287 | 40 | 92.5 | 0 | 1 | 27654 | 2.92e-05 | 52 | Intergenic (Start - rrn26) | Intergenic (ccmB - cox2) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 Arabidopsis thaliana ecotype C24 mitochondrion, complete genome | Forward | Direct | 7867 | 7896 | 122376 | 122405 | 30 | 100 | 0 | 0 | 114479 | 1.2e-07 | 60 | Intergenic (Start - rrn26) | Intergenic (tRNA-Ser - tRNA-Ile) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 Arabidopsis thaliana ecotype C24 mitochondrion, complete genome | Forward | Direct | 7867 | 7896 | 161067 | 161096 | 30 | 96.667 | 1 | 0 | 153170 | 2.92e-05 | 52 | Intergenic (Start - rrn26) | Intergenic (rpl2 - nad4) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 Arabidopsis thaliana ecotype C24 mitochondrion, complete genome | Forward | Direct | 7867 | 7896 | 206426 | 206455 | 30 | 100 | 0 | 0 | 198529 | 1.2e-07 | 60 | Intergenic (Start - rrn26) | Intergenic (tRNA-Lys - cox3) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 Arabidopsis thaliana ecotype C24 mitochondrion, complete genome | Forward | Direct | 8424 | 8488 | 278833 | 278897 | 65 | 93.846 | 4 | 0 | 270344 | 5.5e-19 | 97.6 | Intergenic (Start - rrn26) | Intergenic (tRNA-Asp - atp9) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 Arabidopsis thaliana ecotype C24 mitochondrion, complete genome | Forward | Direct | 8456 | 8488 | 346713 | 346745 | 33 | 96.97 | 1 | 0 | 338224 | 4.73e-07 | 58 | Intergenic (Start - rrn26) | Intergenic (tRNA-met - cox1) | Arabidopsis_thaliana_1_mitogenome |
+| JF729200.1 Arabidopsis thaliana ecotype C24 mitochondrion, complete genome | Forward | Direct | 11710 | 11740 | 188825 | 188855 | 31 | 93.548 | 2 | 0 | 177084 | 0.002 | 46.1 | Intergenic (rrn26 - nad5) | Intergenic (atp4 - nad4L) | Arabidopsis_thaliana_1_mitogenome |
 
-![pB](plots/pB-1.png)
+![pA](plots/repeat1-1.png)
+
+![pB](plots/repeat2-1.png)
 
 ## Ka/Ks Analysis
 
