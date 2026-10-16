@@ -53,7 +53,7 @@ genome	122000	122300	tRNA-Ser	tRNA	+
 - **`--outgroup_mitogenome`** (`file`, optional): Outgroup sequence for mitogenome phylogenetic tree building.
 
 ``` bash
-nextflow run mordziarz/OrganelleFix -profile standard -r main -latest --samples_table samples_table.csv -profile standard --ks_ka_reference_plastome "species" --ks_ka_reference_mitogenome "species" --outgroup_plastome "species" --outgroup_mitogenome "species"
+nextflow run mordziarz/OrganelleFix -profile standard -r main -latest --samples_table samples_table.csv --ks_ka_reference_plastome "species" --ks_ka_reference_mitogenome "species" --outgroup_plastome "species" --outgroup_mitogenome "species"
 ```
 # WARNING
 The pipeline does **not** automatically validate the number of CDS features, nor whether they start and end correctly. It is **strongly recommended** to inspect all output files in the `results/prepared_genomes` folder. While downstream analyses based on nucleotide sequences are generally robust, verifying the correct CDS boundaries for your dataset is essential.
