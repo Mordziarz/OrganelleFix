@@ -362,7 +362,6 @@ find_repeats_4types_blast <- function(
 
       setnames(dt, expected_columns)
 
-      # Filter individual HSPs before chaining.
       dt <- dt[
         Length >= min_len &
           Identity >= min_identity
@@ -387,7 +386,6 @@ find_repeats_4types_blast <- function(
         )]
       }
 
-      # Exclude exact self-locus matches.
       dt <- dt[!(Start1 == Start2 & End1 == End2)]
 
       if (nrow(dt) == 0L) next
