@@ -3,6 +3,9 @@ process PHYLOGENY {
     label 'process_medium'
 
     publishDir "${params.outdir}/phylogeny/${organelle}", mode: 'copy'
+    
+    when:
+    sample_ids.size() >= 3
 
     input:
     tuple val(organelle), val(sample_ids), path(cds_files)
