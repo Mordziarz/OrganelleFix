@@ -52,8 +52,12 @@ write.csv(rscu_matrix, "rscu_matrix_output.csv")
 rscu_matrix_plastome <- rscu_matrix[grepl("plastome", rownames(rscu_matrix), ignore.case = TRUE), , drop = FALSE]
 rscu_matrix_mitogenome <- rscu_matrix[grepl("mitogenome", rownames(rscu_matrix), ignore.case = TRUE), , drop = FALSE]
 
-write.csv(rscu_matrix_plastome, "rscu_matrix_output_plastome.csv")
-write.csv(rscu_matrix_mitogenome, "rscu_matrix_output_mitogenome.csv")
+if (nrow(rscu_matrix_plastome) > 0) {
+  write.csv(rscu_matrix_plastome, "rscu_matrix_output_plastome.csv")
+}
+if (nrow(rscu_matrix_mitogenome) > 0) {
+  write.csv(rscu_matrix_mitogenome, "rscu_matrix_output_mitogenome.csv")
+}
 
 rscu_res_plastome <- rscu_res_global %>% filter(grepl("plastome", Species, ignore.case = TRUE))
 rscu_res_mitogenome <- rscu_res_global %>% filter(grepl("mitogenome", Species, ignore.case = TRUE))
@@ -61,15 +65,23 @@ rscu_res_mitogenome <- rscu_res_global %>% filter(grepl("mitogenome", Species, i
 rscu_res_plastome$Species <- gsub("_plastome", "", rscu_res_plastome$Species)
 rscu_res_mitogenome$Species <- gsub("_mitogenome", "", rscu_res_mitogenome$Species)
 
-if (nrow(rscu_res_plastome) > 0) {
+if (nrow(rscu_res_plastome) > 0 && length(unique(rscu_res_plastome$Species)) >= 2) {
   pdf("rscu_heatmap_plastome.pdf", width = 14, height = 8)
-  heatmap_RSCU(get_RSCU_out = rscu_res_plastome, select = "heatmap", heatmap_color = "red_blue")
+  tryCatch({
+    heatmap_RSCU(get_RSCU_out = rscu_res_plastome, select = "heatmap", heatmap_color = "red_blue")
+  }, error = function(e) {
+    warning("Plastome heatmap skipped: ", e$message)
+  })
   dev.off()
 }
 
-if (nrow(rscu_res_mitogenome) > 0) {
+if (nrow(rscu_res_mitogenome) > 0 && length(unique(rscu_res_mitogenome$Species)) >= 2) {
   pdf("rscu_heatmap_mitogenome.pdf", width = 14, height = 8)
-  heatmap_RSCU(get_RSCU_out = rscu_res_mitogenome, select = "heatmap", heatmap_color = "red_blue")
+  tryCatch({
+    heatmap_RSCU(get_RSCU_out = rscu_res_mitogenome, select = "heatmap", heatmap_color = "red_blue")
+  }, error = function(e) {
+    warning("Mitogenome heatmap skipped: ", e$message)
+  })
   dev.off()
 }
 
